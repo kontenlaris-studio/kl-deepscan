@@ -19,10 +19,10 @@
 - Python stdlib ONLY. No pip deps. Python 3.8+ compatible syntax (no match statements).
 
 ## Checklist
-- [ ] Core engine + CLI + safety gate (agent A)
-- [ ] Checks library, honest count (agent B)
-- [ ] Reports + AI triage + fixture selftest + README/docs (agent C)
-- [ ] Integration: run selftest, fix, verify check count
-- [ ] GitHub repo kontenlaris-studio/kl-deepscan created, pushed, verified (README renders, release v1.0)
-- [ ] Daily GitHub Trending Top 10 cron → this chat (~08:30 WIB)
-- [ ] Report to user (1 bubble) + MEMORY line
+- [x] Core engine + CLI + safety gate (agent A)
+- [x] Checks library, honest count (agent B)
+- [x] Reports + AI triage + fixture selftest + README/docs (agent C)
+- [x] Integration: run selftest, fix, verify check count
+- [x] GitHub repo kontenlaris-studio/kl-deepscan created, pushed, verified (README renders, release v1.0)
+- [x] Daily GitHub Trending Top 10 cron → this chat (~08:30 WIB)
+- [x] Report to user (1 bubble) + MEMORY line
