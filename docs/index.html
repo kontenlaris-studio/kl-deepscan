@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KL-DeepScan — Web Security Intelligence Scanner</title>
+<meta name="description" content="KL-DeepScan: a modern detection-first web vulnerability scanner. 70 checks, online AI triage, HTML/JSON/SARIF reports. Pure Python stdlib, zero dependencies. By Kontenlaris Studio.">
+<style>
+  :root{--navy:#0A1931;--navy2:#0d2142;--orange:#FF7A00;--ink:#E6EDF3;--muted:#9FB0C3;--line:#1d3357}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--navy);color:var(--ink);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+  a{color:var(--orange);text-decoration:none}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+  header{text-align:center;padding:64px 20px 40px;background:radial-gradient(ellipse 70% 55% at 50% 0%,#14305c 0%,var(--navy) 70%)}
+  header img{width:250px;max-width:70vw;filter:drop-shadow(0 0 34px rgba(255,122,0,.28))}
+  h1{font-size:2.9rem;letter-spacing:.14em;margin-top:18px}
+  .tag{color:var(--orange);letter-spacing:.34em;font-size:.82rem;font-weight:700;text-transform:uppercase}
+  .sub{color:var(--muted);max-width:640px;margin:16px auto 0}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:26px 0 6px}
+  .badge{border:1px solid var(--orange);color:var(--ink);border-radius:6px;padding:4px 12px;font-size:.8rem;font-weight:600}
+  .badge b{color:var(--orange)}
+  .cta{display:inline-block;background:var(--orange);color:#0A1931;font-weight:700;padding:12px 28px;border-radius:8px;margin:22px 6px 0}
+  .cta.ghost{background:transparent;color:var(--orange);border:1px solid var(--orange)}
+  section{padding:44px 0 8px}
+  h2{font-size:1.45rem;margin-bottom:6px}
+  h2 span{color:var(--orange)}
+  .lead{color:var(--muted);margin-bottom:22px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .card{background:var(--navy2);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .card h3{color:var(--orange);font-size:1.02rem;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.92rem}
+  .card .n{font-size:1.7rem;font-weight:800;color:var(--ink)}
+  pre{background:#06101f;border:1px solid var(--line);border-radius:12px;padding:18px;overflow-x:auto;font-size:.88rem;color:#cfe3ff}
+  .safe{background:var(--navy2);border:1px solid var(--orange);border-radius:12px;padding:20px;color:var(--muted)}
+  .safe b{color:var(--ink)}
+  footer{text-align:center;color:var(--muted);padding:44px 20px 54px;font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+  <img src="logo.png" alt="KL-DeepScan logo">
+  <h1>KL-DEEPSCAN</h1>
+  <div class="tag">Web Security Intelligence Scanner</div>
+  <p class="sub">A modern, detection-first web vulnerability scanner — 70 checks, online AI triage, and professional reports. Pure Python standard library: no pip installs, runs anywhere Python runs, including Termux.</p>
+  <div class="badges">
+    <div class="badge">version <b>1.0.0</b></div>
+    <div class="badge">checks <b>70</b></div>
+    <div class="badge">python <b>3.8+</b></div>
+    <div class="badge">dependencies <b>zero</b></div>
+    <div class="badge">license <b>MIT</b></div>
+  </div>
+  <a class="cta" href="https://github.com/kontenlaris-studio/kl-deepscan">View on GitHub</a>
+  <a class="cta ghost" href="https://github.com/kontenlaris-studio/kl-deepscan/releases/tag/v1.0">Release v1.0</a>
+</header>
+
+<div class="wrap">
+<section>
+  <h2>What it <span>checks</span></h2>
+  <p class="lead">Nine check families, every one detection-only — harmless marker probes, never exploitation.</p>
+  <div class="grid">
+    <div class="card"><div class="n">21</div><h3>Exposure &amp; Files</h3><p>.git, .env, backups, phpinfo, server-status, directory listing, verbose errors, security.txt and more.</p></div>
+    <div class="card"><div class="n">17</div><h3>Security Headers</h3><p>CSP quality, HSTS, framing, content-type sniffing, referrer &amp; permissions policy, version disclosure.</p></div>
+    <div class="card"><div class="n">8</div><h3>TLS</h3><p>Expiry, self-signed, hostname mismatch, legacy TLS 1.0/1.1, HTTPS enforcement.</p></div>
+    <div class="card"><div class="n">5</div><h3>JWT</h3><p>Decode-only analysis: alg=none, missing or excessive expiry, sensitive claims.</p></div>
+    <div class="card"><div class="n">4</div><h3>Cookies</h3><p>Secure, HttpOnly, SameSite — assessed per cookie.</p></div>
+    <div class="card"><div class="n">4</div><h3>Active Probes</h3><p>Reflected marker, SQL error signature, open redirect, GraphQL introspection.</p></div>
+    <div class="card"><div class="n">3</div><h3>CORS</h3><p>Reflected origins, wildcard with credentials, null origin.</p></div>
+    <div class="card"><div class="n">6+2</div><h3>HTML &amp; Methods</h3><p>Mixed content, forms over HTTP, missing SRI, TRACE and dangerous methods.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Online <span>AI triage</span></h2>
+  <p class="lead">Optional AI summary of what to fix first — bring your own key, nothing is bundled. Auto-selects the first configured provider and falls back to the next on failure: <b>Groq · Gemini · OpenRouter · OpenAI · Claude</b>. Without a key, the scanner still runs at full strength.</p>
+</section>
+
+<section>
+  <h2>Run it in <span>seconds</span></h2>
+  <pre>git clone https://github.com/kontenlaris-studio/kl-deepscan
+cd kl-deepscan
+
+# your own / authorized targets only — external targets require --yes
+python3 deepscan.py https://your-site.example --yes \
+  --format html --out report.html --triage</pre>
+  <p class="lead" style="margin-top:14px">Reports in HTML (branded, self-contained), JSON, and SARIF 2.1.0 for CI pipelines.</p>
+</section>
+
+<section>
+  <div class="safe"><b>Detection-first, by design.</b> KL-DeepScan sends harmless markers and reads responses — it never exploits, brute-forces, or modifies a target. Non-local targets require an explicit <b>--yes</b> confirming you own the target or have written authorization to test it. Only scan systems you are authorized to assess.</div>
+</section>
+</div>
+
+<footer>
+  Built by <a href="https://github.com/kontenlaris-studio">Kontenlaris Studio</a> · MIT License · <a href="https://github.com/kontenlaris-studio/kl-deepscan">github.com/kontenlaris-studio/kl-deepscan</a>
+</footer>
+</body>
+</html>

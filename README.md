@@ -1,4 +1,20 @@
+<div align="center">
+
+<img src="assets/logo.png" width="300" alt="KL-DeepScan logo"/>
+
 # KL-DeepScan
+
+**WEB SECURITY INTELLIGENCE SCANNER**
+
+![version](https://img.shields.io/badge/version-1.0.0-0A1931?style=for-the-badge&labelColor=FF7A00)
+![checks](https://img.shields.io/badge/checks-70-0A1931?style=for-the-badge&labelColor=FF7A00)
+![python](https://img.shields.io/badge/python-3.8+-0A1931?style=for-the-badge&labelColor=FF7A00)
+![license](https://img.shields.io/badge/license-MIT-0A1931?style=for-the-badge&labelColor=FF7A00)
+![dependencies](https://img.shields.io/badge/dependencies-zero-0A1931?style=for-the-badge&labelColor=FF7A00)
+
+**[Live page](https://kontenlaris-studio.github.io/kl-deepscan/)** · **[Releases](https://github.com/kontenlaris-studio/kl-deepscan/releases)**
+
+</div>
 
 **A modern, detection-only web vulnerability scanner — Python standard library only.**
 Built by [Kontenlaris Studio](https://github.com/kontenlaris-studio). No pip installs, no build step: clone it and run it, on a server, a laptop, or a phone with Termux.
