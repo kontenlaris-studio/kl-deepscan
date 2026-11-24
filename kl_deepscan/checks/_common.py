@@ -6,6 +6,7 @@ The decorator (a) appends to ALL_CHECKS, (b) swallows all exceptions
 every returned Finding so registry ids and finding ids can never drift.
 """
 import functools
+import logging
 import re
 
 from kl_deepscan.models import Finding
@@ -24,8 +25,8 @@ def register(check_id, title):
             for f in out:
                 try:
                     f.id = check_id
-                except Exception:
-                    pass
+                except Exception as e:
+                    logging.getLogger(__name__).debug("gagal stempel id %s: %s", check_id, e)
             return out
         ALL_CHECKS.append((check_id, title, wrapper))
         return wrapper

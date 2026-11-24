@@ -82,7 +82,7 @@ def main():
     print("fixture server listening on http://%s:%d" % (HOST, port), flush=True)
     try:
         server.serve_forever()
-    except KeyboardInterrupt:
+    except KeyboardInterrupt:  # audit:allow — Ctrl-C memang cara normal menghentikan fixture server
         pass
 
 

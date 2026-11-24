@@ -1,4 +1,5 @@
 """TLS / certificate checks using raw ssl sockets (stdlib only)."""
+import logging
 import os
 import socket
 import ssl
@@ -47,8 +48,8 @@ def _cert_info(ctx):
             if path:
                 try:
                     os.unlink(path)
-                except Exception:
-                    pass
+                except Exception as e:
+                    logging.getLogger(__name__).debug("gagal hapus file sertifikat sementara %s: %s", path, e)
     return _cached(ctx, "cert_info", fetch)
 
 
