@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.png" width="300" alt="KL-DeepScan logo"/>
+<img src="assets/logo.png?v=3" width="300" alt="KL-DeepScan logo"/>
 
 # KL-DeepScan
 
